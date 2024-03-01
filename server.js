@@ -7,14 +7,13 @@ const mongoose = require('mongoose');
 
 mongoose.connect(process.env.CONNECTIONSTRING)
     .then(() => {
-        console.log('Conectei a base de dados...');
         app.emit('pronto');
     })
     .catch(e => console.log(e));
 
 const routes = require('./routes');
 const path = require('path');
-const { meuMiddleware } = require('./src/controllers/middlewares/middleware');
+const { meuMiddleware } = require('./src/middlewares/middleware');
 
 app.use(express.urlencoded({ extended: true }));
 
